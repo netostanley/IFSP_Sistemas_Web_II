@@ -1,0 +1,39 @@
+﻿@model tp2tuller.Models.Conteiner
+
+<h1>Editar Container</h1>
+
+<form asp-action="Edit">
+    <input type="hidden" asp-for="ID" />
+    <div class="form-group">
+        <label asp-for="Numero" class="control-label"></label>
+        <input asp-for="Numero" class="form-control" />
+        <span asp-validation-for="Numero" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Tipo" class="control-label"></label>
+        <input asp-for="Tipo" class="form-control" />
+        <span asp-validation-for="Tipo" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Tamanho" class="control-label"></label>
+        <input asp-for="Tamanho" class="form-control" type="number" />
+        <span asp-validation-for="Tamanho" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ID_BL" class="control-label"></label>
+        <select asp-for="ID_BL" class="form-control" asp-items="@(new SelectList(ViewBag.BLs, "ID", "Numero", Model.ID_BL))"></select>
+        <span asp-validation-for="ID_BL" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

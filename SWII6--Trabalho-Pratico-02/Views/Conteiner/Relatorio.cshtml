@@ -1,0 +1,40 @@
+﻿@model IEnumerable<tp2tuller.Models.BL>
+
+@{
+    ViewData["Title"] = "Relatório de BLs e Containers";
+}
+
+<h1>Relatório de BLs e Containers</h1>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Número do BL</th>
+            <th>Consignee</th>
+            <th>Tipo</th>
+            <th>Containers</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var bl in Model)
+        {
+            <tr>
+                <td>@bl.Numero</td>
+                <td>@bl.Consignee</td>
+                <td>@bl.Navio</td>
+                <td>
+                    <ul>
+                        @foreach (var conteiner in bl.Containers)
+                        {
+                            <li>
+                                Número: @conteiner.Numero,
+                                Tipo: @conteiner.Tipo,
+                                Tamanho: @conteiner.Tamanho
+                            </li>
+                        }
+                    </ul>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

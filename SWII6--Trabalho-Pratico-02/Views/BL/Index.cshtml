@@ -1,0 +1,33 @@
+﻿@model IEnumerable<tp2tuller.Models.BL>
+
+<h1>Lista de BLs</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Número</th>
+            <th>Consignee</th>
+            <th>Navio</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ID</td>
+                <td>@item.Numero</td>
+                <td>@item.Consignee</td>
+                <td>@item.Navio</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ID">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.ID">Detalhes</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ID">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create">Criar Novo</a>

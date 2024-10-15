@@ -1,0 +1,36 @@
+﻿@model IEnumerable<tp2tuller.Models.Conteiner>
+
+<h1>Lista de Containers</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Numero</th>
+            <th>Tipo</th>
+            <th>Tamanho</th>
+            <th>BL</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ID</td>
+                <td>@item.Numero</td>
+                <td>@item.Tipo</td>
+                <td>@item.Tamanho</td>
+                <td>@item.BL?.Numero</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ID" class="btn btn-warning">Editar</a>
+                    <form asp-action="Delete" asp-route-id="@item.ID" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir este item?');">Deletar</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create" class="btn btn-primary">Criar Novo Container</a>

@@ -1,0 +1,52 @@
+﻿@model tp2tuller.Models.BL
+
+@{
+    ViewData["Title"] = "Editar BL";
+}
+
+<h1>Editar BL</h1>
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger" role="alert">
+        Há erros no formulário. Por favor, corrija-os e tente novamente.
+    </div>
+}
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="ID" />
+
+    <div class="form-group">
+        <label asp-for="Numero" class="control-label"></label>
+        <input asp-for="Numero" class="form-control" />
+        <span asp-validation-for="Numero" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Consignee" class="control-label"></label>
+        <input asp-for="Consignee" class="form-control" />
+        <span asp-validation-for="Consignee" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Navio" class="control-label"></label>
+        <input asp-for="Navio" class="form-control" />
+        <span asp-validation-for="Navio" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Salvar" class="btn btn-primary" />
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </div>
+</form>
+
+@section Scripts {
+    <script>
+        // Script para lidar com a validação do modelo
+        document.addEventListener("DOMContentLoaded", function () {
+            if (@(ViewData.ModelState.IsValid ? "false" : "true")) {
+                alert("Por favor, corrija os erros no formulário.");
+            }
+        });
+    </script>
+}
