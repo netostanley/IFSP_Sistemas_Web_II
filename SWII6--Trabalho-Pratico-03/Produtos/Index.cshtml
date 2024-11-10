@@ -1,0 +1,30 @@
+﻿@model IEnumerable<tp2tuller.Models.Produto>
+
+<h2>Lista de Produtos</h2>
+<p>
+    @Html.ActionLink("Criar Novo Produto", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Preço</th>
+        <th>Quantidade</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+            <tr>
+                <td>@item.Nome</td>
+                <td>@item.Descricao</td>
+                <td>@item.Preco</td>
+                <td>@item.Quantidade</td>
+                <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Detalhes", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Excluir", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+    }
+</table>

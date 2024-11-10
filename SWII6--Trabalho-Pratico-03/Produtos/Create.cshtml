@@ -1,0 +1,52 @@
+﻿@model tp2tuller.Models.Produto
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0">Cadastrar Produto</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-horizontal">
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "form-label" })
+                                @Html.EditorFor(model => model.Nome, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Descricao, htmlAttributes: new { @class = "form-label" })
+                                @Html.EditorFor(model => model.Descricao, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Descricao, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Preco, htmlAttributes: new { @class = "form-label" })
+                                @Html.EditorFor(model => model.Preco, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Preco, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Quantidade, htmlAttributes: new { @class = "form-label" })
+                                @Html.EditorFor(model => model.Quantidade, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Quantidade, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group text-center">
+                                <button type="submit" class="btn btn-primary">Salvar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
